@@ -40,11 +40,11 @@ hours_per_day = 24
 for i in range(len(prices) // hours_per_day):  # Adjusted for hourly data
     # Calculate indices for buying at night
     buy_index_night = i * hours_per_day + 2  # Assuming the list starts at 00:00 and ends at 23:00
-    sell_index_night = i * hours_per_day + 7
+    sell_index_night = i * hours_per_day + 6
 
     # Calculate indices for buying in the afternoon
     buy_index_afternoon = i * hours_per_day + 12
-    sell_index_afternoon = i * hours_per_day + 19
+    sell_index_afternoon = i * hours_per_day + 18
 
     # Calculate potential earnings at night
     if buy_index_night < len(prices) and sell_index_night < len(prices):

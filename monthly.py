@@ -38,7 +38,7 @@ total_earnings = 0
 for i in range(len(prices)//24):  # Assuming hourly data
     # price over night
     buy_index = i * 24 + 2  # Assuming the list starts at 00:00 and ends at 23:00
-    sell_index = i * 24 + 7
+    sell_index = i * 24 + 6
 
     if buy_index < len(prices) and sell_index < len(prices):
         # Calculate earnings for the day
@@ -49,7 +49,7 @@ for i in range(len(prices)//24):  # Assuming hourly data
 
     # price over afternoon
     buy_index = i * 24 + 12  # Assuming the list starts at 00:00 and ends at 23:00
-    sell_index = i * 24 + 19
+    sell_index = i * 24 + 18
 
     if buy_index < len(prices) and sell_index < len(prices):
         # Calculate earnings for the day
