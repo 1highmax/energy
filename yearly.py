@@ -6,10 +6,11 @@ api_base_url = "https://api.energy-charts.info"
 endpoint_path = "/price"
 bidding_zone = "DE-LU"  # Assuming Germany-Luxembourg as the bidding zone
 efficiency = 0.8
+years = 5
 
 # Calculate the start and end dates for the last year
 end_date = datetime.utcnow()
-start_date = end_date - timedelta(days=365)  # Change this to 365 days
+start_date = end_date - timedelta(days=365 * years)  # Change this to 365 days
 
 # Format dates in ISO 8601 format
 start_date_iso = start_date.strftime('%Y-%m-%dT00:00Z')
@@ -56,5 +57,7 @@ for i in range(len(prices) // hours_per_day):  # Adjusted for hourly data
         afternoon_earnings = (prices[sell_index_afternoon] - prices[buy_index_afternoon]) * efficiency
         total_earnings += afternoon_earnings
 
+total_earnings /= years
 # Print the total potential earnings
-print(f"Total potential earnings over the last year: EUR {total_earnings:.2f}")
+# print(f"Total potential earnings over the last year: EUR {total_earnings:.2f}")
+print(f"Yearly average potential earnings over the last {years} years : EUR {total_earnings:.2f}")
