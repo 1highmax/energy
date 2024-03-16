@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 api_base_url = "https://api.energy-charts.info"
 endpoint_path = "/price"
 bidding_zone = "DE-LU"  # Assuming Germany-Luxembourg as the bidding zone
-efficiency = 0.8
+efficiency = 0.75
 
 
 # Calculate the start and end dates for the last month
@@ -57,6 +57,6 @@ for i in range(len(prices)//24):  # Assuming hourly data
         # Add to total earnings
         total_earnings += daily_earnings
 
-total_earnings *= efficiency
+total_earnings *=efficiency
 # Print the total potential earnings
 print(f"Total potential earnings over the last month: EUR {total_earnings:.2f}")
